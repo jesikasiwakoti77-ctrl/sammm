@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To the Most Beautiful Bride ❤️</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary-gold: #d4af37;
+  --soft-white: #fffcf2;
+  --accent-rose: #ff4d6d;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0c;
+  color: white;
+}
+
+/* Background Overlay */
+.overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Start Screen */
+#startScreen {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  text-align: center;
+}
+
+.start-btn {
+  padding: 15px 40px;
+  font-size: 20px;
+  background: var(--primary-gold);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+/* Global Controls */
+#controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: none;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Floating Elements (Hearts/Sparkles) */
+.heart {
+  position: fixed;
+  bottom: -50px;
+  font-size: 24px;
+  opacity: 0.5;
+  z-index: 0;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-110vh) rotate(360deg); }
+}
+
+/* Scenes */
+.scene {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  text-align: center;
+  transition: opacity 1.5s ease;
+}
+
+.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Visual Placeholder Boxes (Instead of Photos) */
+.visual-box {
+  width: 250px;
+  height: 250px;
+  border: 2px solid var(--primary-gold);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* Text boxes */
+.text {
+  font-size: clamp(16px, 4vw, 22px);
+  max-width: 80%;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border-bottom: 5px solid var(--primary-gold);
+}
+
+.highlight {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(28px, 6vw, 38px);
+  color: var(--primary-gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.final-card {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+</style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<!-- Replace "FriendName" with her name -->
+<div id="startScreen">
+  <h1 style="font-family: 'Dancing Script'; font-size: 55px; margin-bottom: 10px; color: var(--primary-gold);">To My Dearest Friend ❤️</h1>
+  <p style="margin-bottom: 30px; opacity: 0.8; letter-spacing: 2px;">FROM SCHOOL TO FOREVER</p>
+  <button class="start-btn" onclick="startExperience()">Open Your Story</button>
+</div>
+
+<div id="controls">
+  <button class="control-btn" id="pauseBtn" onclick="togglePause()">⏸ Pause Journey</button>
+</div>
+
+<!-- Add your music file link here -->
+<audio id="music" loop>
+  <source src="wedding-song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SCENE 1: THE BEGINNING -->
+<div class="scene" id="s1">
+  <div class="visual-box">🎒</div>
+  <div class="text">
+    <span class="highlight">The School Days</span>
+    We started as classmates, two kids with big dreams.<br>
+    Who knew those school hallways were the start of a lifelong family?
+  </div>
+</div>
+
+<!-- SCENE 2: THE BOND -->
+<div class="scene" id="s2">
+  <div class="visual-box">🏠</div>
+  <div class="text">
+    <span class="highlight">Friends turned Family</span>
+    The years passed, but we only grew closer.<br>
+    You aren't just a friend anymore; you are the sister<br>
+    my heart chose to keep forever.
+  </div>
+</div>
+
+<!-- SCENE 3: THE DISTANCE -->
+<div class="scene" id="s3">
+  <div class="visual-box">✈️</div>
+  <div class="text">
+    <span class="highlight">Miles Apart, Souls Connected</span>
+    I'm back in my city now, and you're starting your new life.<br>
+    Distance is just a number when two souls are<br>
+    as intertwined as ours.
+  </div>
+</div>
+
+<!-- SCENE 4: THE WEDDING -->
+<div class="scene" id="s4">
+  <div class="visual-box">💍</div>
+  <div class="text">
+    <span class="highlight">The Most Beautiful Bride</span>
+    Seeing you walk down the aisle was a moment I'll never forget.<br>
+    My school bestie is now a Mrs, and I couldn't be prouder.<br>
+    You looked absolutely radiant.
+  </div>
+</div>
+
+<!-- SCENE 5: THE CELEBRATION -->
+<div class="scene" id="s5">
+  <div class="visual-box" style="border-color: gold; color: gold;">✨</div>
+  <div class="text">
+    <span class="highlight">A New Chapter</span>
+    The wedding was perfect, but your marriage will be even better.<br>
+    I'm so glad I was there to witness your "Happily Ever After" begin.
+  </div>
+</div>
+
+<!-- SCENE 6: THE FINAL LETTER -->
+<div class="scene" id="s6">
+  <div class="text final-card">
+    <span class="highlight">Congratulations, My Love! 🥂</span>
+    To my dearest best friend,<br><br>
+    As I sit here in my city, looking back at the weekend we just shared,<br>
+    my heart is so full. We’ve come such a long way from the classroom.<br><br>
+    May your home be filled with laughter, your heart with peace,<br>
+    and your life with an endless kind of love.<br><br>
+    I may be miles away, but I am <strong>always</strong> in your corner.<br>
+    Whenever you need a "yap" session or a reminder of home, I'm here.<br><br>
+    <span style="font-family:'Dancing Script'; font-size: 32px; color: var(--primary-gold);">With so much love, [Your Name]</span>
+  </div>
+</div>
+
+<script>
+let currentSceneIndex = 0;
+let isPaused = false;
+let sceneTimer;
+const sceneDuration = 8000; // 8 seconds per scene
+const scenes = ["s1", "s2", "s3", "s4", "s5", "s6"];
+
+function startExperience() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("controls").style.display = "block";
+  const music = document.getElementById("music");
+  music.play().catch(e => console.log("Music needs user interaction"));
+  showNextScene();
+}
+
+function showNextScene() {
+  if (currentSceneIndex >= scenes.length) return;
+
+  document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+  
+  const id = scenes[currentSceneIndex];
+  const currentScene = document.getElementById(id);
+  currentScene.classList.add('active');
+
+  startTimer();
+}
+
+function startTimer() {
+  clearTimeout(sceneTimer);
+  if (isPaused || currentSceneIndex >= scenes.length - 1) return;
+
+  sceneTimer = setTimeout(() => {
+    currentSceneIndex++;
+    showNextScene();
+  }, sceneDuration);
+}
+
+function togglePause() {
+  const music = document.getElementById('music');
+  const btn = document.getElementById('pauseBtn');
+
+  if (!isPaused) {
+    isPaused = true;
+    clearTimeout(sceneTimer);
+    music.pause();
+    btn.innerHTML = "▶ Resume Journey";
+    btn.style.background = "var(--primary-gold)";
+  } else {
+    isPaused = false;
+    music.play();
+    btn.innerHTML = "⏸ Pause Journey";
+    btn.style.background = "rgba(255, 255, 255, 0.1)";
+    startTimer();
+  }
+}
+
+/* Floating Hearts & Sparkles */
+function createHeart(){
+  if (isPaused) return;
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  // Mix hearts and stars for a wedding feel
+  const icons = ["💖", "✨", "🥂", "💍"];
+  heart.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (20 + Math.random() * 20) + "px";
+  heart.style.animationDuration = (6 + Math.random() * 4) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => { heart.remove(); }, 8000);
+}
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>

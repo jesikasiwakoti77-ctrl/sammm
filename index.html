@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>To My Bestestt Friend Everrr ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>To My Bestestttt Friend Everrr ❤️</title>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -20,9 +20,11 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg-dark);
   color: white;
+  /* Use dvh for perfect mobile height */
+  height: 100dvh; 
+  width: 100vw;
 }
 
-/* Background Overlay */
 .overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -31,7 +33,6 @@ body {
   pointer-events: none;
 }
 
-/* Start Screen */
 #startScreen {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -42,11 +43,13 @@ body {
   align-items: center;
   z-index: 100;
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .start-btn {
-  padding: 15px 40px;
-  font-size: 20px;
+  padding: 18px 45px;
+  font-size: 18px;
   background: var(--wedding-gold);
   color: white;
   border: none;
@@ -54,13 +57,12 @@ body {
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-  transition: 0.3s;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Global Controls */
 #controls {
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -70,30 +72,26 @@ body {
 .control-btn {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--wedding-gold);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 30px;
-  cursor: pointer;
   font-size: 14px;
 }
 
-/* Floating Sparkles */
 .heart {
   position: fixed;
   bottom: -50px;
-  font-size: 24px;
-  opacity: 0.6;
   z-index: 0;
   animation: floatUp linear infinite;
 }
 
 @keyframes floatUp {
   0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-110vh) rotate(360deg); }
+  100% { transform: translateY(-110dvh) rotate(360deg); }
 }
 
-/* Scenes */
 .scene {
   position: absolute;
   top: 0; left: 0;
@@ -103,12 +101,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   opacity: 0;
   visibility: hidden;
   z-index: 2;
   text-align: center;
-  transition: opacity 1.5s ease;
+  transition: opacity 1s ease-in-out;
 }
 
 .active {
@@ -116,52 +114,53 @@ body {
   visibility: visible !important;
 }
 
-/* Responsive Video/Photo Containers */
+/* MOBILE OPTIMIZED MEDIA CONTAINERS */
 .media-container {
-  width: 85vw;
-  max-width: 400px;
+  width: 80vw;
+  height: 45vh; /* Fixed height for mobile consistency */
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
   background: #000;
-  border: 4px solid white;
+  border: 3px solid white;
 }
 
 .photo {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover; /* Ensures photos don't squash */
   display: block;
 }
 
 video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* Text boxes */
 .text {
-  font-size: clamp(15px, 4vw, 20px);
-  max-width: 85%;
-  line-height: 1.6;
+  font-size: clamp(14px, 4vw, 18px);
+  max-width: 80%;
+  line-height: 1.5;
   color: #222;
   background: rgba(255, 255, 255, 0.95);
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  padding: 18px;
+  border-radius: 15px;
 }
 
 .highlight {
   font-family: 'Dancing Script', cursive;
-  font-size: clamp(26px, 6vw, 36px);
+  font-size: clamp(24px, 6vw, 32px);
   color: var(--wedding-gold);
   display: block;
 }
 
 .final-card {
-  max-height: 80vh;
+  max-height: 75dvh;
   overflow-y: auto;
-  font-size: 16px;
+  font-size: 15px;
+  padding: 25px;
 }
 </style>
 </head>
@@ -170,88 +169,86 @@ video {
 <div class="overlay"></div>
 
 <div id="startScreen">
-  <h1 style="font-family: 'Dancing Script'; font-size: 50px; color: var(--wedding-gold); margin-bottom: 10px;">To My Dearest Friend ❤️</h1>
-  <p style="margin-bottom: 30px; opacity: 0.8; letter-spacing: 2px;">SCHOOL FRIENDS • FAMILY • FOREVER</p>
+  <h1 style="font-family: 'Dancing Script'; font-size: 45px; color: var(--wedding-gold); margin: 0;">To My Bestieee</h1>
+  <p style="margin: 15px 0 30px; opacity: 0.8; letter-spacing: 2px; font-size: 12px;">SCHOOL FRIENDS • FAMILY • FOREVER</p>
   <button class="start-btn" onclick="startExperience()">Open Your Surprise</button>
 </div>
 
 <div id="controls">
-  <button class="control-btn" id="pauseBtn" onclick="togglePause()">⏸ Pause Presentation</button>
+  <button class="control-btn" id="pauseBtn" onclick="togglePause()">⏸ Pause</button>
 </div>
 
-<!-- Add your background music link here -->
-<audio id="music" loop>
-  <source src="wedding-song.mp3" type="audio/mpeg">
+<audio id="music" loop preload="auto">
+  <source src="./wedding-song.mp3" type="audio/mpeg">
 </audio>
 
-<!-- SCENE 1: INTRODUCTION -->
+<!-- SCENE 1 -->
 <div class="scene" id="s1">
   <div class="text">
     <span class="highlight">Where it all began...</span>
-    From school uniforms and shared classrooms,<br>
-    we grew into a bond that distance could never break.
+    From school uniforms to shared dreams,<br>
+    we grew into a bond that distance can't break.
   </div>
-  <div style="font-size: 50px;">🎒🏫✨</div>
+  <div style="font-size: 40px;">🎒🏫✨</div>
 </div>
 
-<!-- SCENE 2: THE COUPLE PHOTO 1 -->
+<!-- SCENE 2: PHOTO 1 -->
 <div class="scene" id="s2">
   <div class="media-container">
-    <img src="couple1.jpg" class="photo"> <!-- CHANGE TO YOUR PHOTO NAME -->
+    <img src="./couple1.jpg" class="photo">
   </div>
   <div class="text">
     <span class="highlight">The Perfect Pair</span>
-    Seeing you both together makes my heart so full.<br>
-    You've found the person your soul was looking for.
+    Seeing you both together makes my heart so full.
   </div>
 </div>
 
-<!-- SCENE 3: THE DISTANCE -->
+<!-- SCENE 3 -->
 <div class="scene" id="s3">
   <div class="text">
-    <span class="highlight">A Note from My City...</span>
-    I may be back home now, miles away,<br>
-    but I'm still cheering for you every single day.<br>
-    Distance only makes our bond stronger.
+    <span class="highlight">From My City to Yours</span>
+    I'm back to where I belong now, miles away,<br>
+    but I'm cheering for you every day.
   </div>
-  <div style="font-size: 50px;">✈️💌🏠</div>
+  <div style="font-size: 40px;">✈️💌🏠</div>
 </div>
 
-<!-- SCENE 4: THE COUPLE PHOTO 2 -->
+<!-- SCENE 4: PHOTO 2 -->
 <div class="scene" id="s4">
   <div class="media-container">
-    <img src="couple2.jpg" class="photo"> <!-- CHANGE TO YOUR PHOTO NAME -->
+    <img src="./couple2.jpg" class="photo">
   </div>
   <div class="text">
     <span class="highlight">Just Married!</span>
-    The most beautiful bride I have ever seen.<br>
-    May this new chapter be your best one yet.
+    The most beautiful bride I have ever seen.
   </div>
 </div>
 
-<!-- SCENE 5: THE VIDEO OF YOU TWO -->
+<!-- SCENE 5: VIDEO -->
 <div class="scene" id="s5">
-  <div class="text" style="background:none; color:white; box-shadow:none;">
-    <span class="highlight" style="color:white;">Memories of Us...</span>
-  </div>
   <div class="media-container">
-    <video id="ourVideo" playsinline>
-      <source src="us-video.mp4" type="video/mp4"> <!-- CHANGE TO YOUR VIDEO NAME -->
+    <!-- playsinline is CRITICAL for iPhone -->
+    <video id="ourVideo" playsinline webkit-playsinline preload="auto">
+      <source src="./us-video.mp4" type="video/mp4">
     </video>
   </div>
+  <div class="text">
+    <span class="highlight">Memories of Us</span>
+    Always family, no matter the distance.
+  </div>
 </div>
 
-<!-- SCENE 6: THE FINAL LETTER -->
+<!-- SCENE 6: FINAL LETTER -->
 <div class="scene" id="s6">
   <div class="text final-card">
-    <span class="highlight">Congratulations, Sammy Darlingg! 🥂</span>
-    My dear friend, we’ve shared so many years together.<br><br>
-    Witnessing your wedding was a dream come true for me.<br>
-    I’m back in the city now, but my heart is still celebrating with you.<br><br>
-    You are more than a friend; you are my <strong>family</strong>.<br>
+    <span class="highlight">Congratulations! 🥂</span>
+    Mero pyarii sammyy,<br><br>
+    Witnessing your wedding was a dream come true.<br>
+    I’m back in the city now, but my heart is with you.<br><br>
+    You are more than a friend; you are <strong>family</strong>.<br>
     I am always just a phone call away.<br><br>
     I love you so much! ❤️<br><br>
-    <span style="font-family:'Dancing Script'; font-size: 30px; color: var(--wedding-gold);">Forever yours, Jassyy</span>
+    <span style="font-family:'Dancing Script'; font-size: 28px; color: var(--wedding-gold);">Forever your, Jessiiii</span>
   </div>
 </div>
 
@@ -259,13 +256,17 @@ video {
 let currentSceneIndex = 0;
 let isPaused = false;
 let sceneTimer;
-const sceneDuration = 9000; // 9 seconds per scene
+const sceneDuration = 8000; 
 const scenes = ["s1", "s2", "s3", "s4", "s5", "s6"];
 
 function startExperience() {
   document.getElementById("startScreen").style.display = "none";
   document.getElementById("controls").style.display = "block";
-  document.getElementById("music").play();
+  
+  // iOS music play fix
+  const music = document.getElementById("music");
+  music.play();
+  
   showNextScene();
 }
 
@@ -282,7 +283,6 @@ function showNextScene() {
   if(id === 's5') {
     vid.currentTime = 0;
     vid.play();
-    // Video scene stays until video ends or at least 10 seconds
     startTimer(Math.max(10000, (vid.duration * 1000) || 10000));
   } else {
     vid.pause();
@@ -293,7 +293,6 @@ function showNextScene() {
 function startTimer(duration) {
   clearTimeout(sceneTimer);
   if (isPaused || currentSceneIndex >= scenes.length - 1) return;
-
   sceneTimer = setTimeout(() => {
     currentSceneIndex++;
     showNextScene();
@@ -310,32 +309,34 @@ function togglePause() {
     clearTimeout(sceneTimer);
     music.pause();
     vid.pause();
-    btn.innerHTML = "▶ Resume Presentation";
-    btn.style.background = "var(--wedding-gold)";
+    btn.innerHTML = "▶ Resume";
   } else {
     isPaused = false;
     music.play();
     if (scenes[currentSceneIndex] === 's5') vid.play();
-    btn.innerHTML = "⏸ Pause Presentation";
-    btn.style.background = "rgba(255, 255, 255, 0.1)";
+    btn.innerHTML = "⏸ Pause";
     startTimer(sceneDuration);
   }
 }
 
-/* Floating Sparkles/Hearts */
 function createHeart(){
   if (isPaused) return;
-  const heart=document.createElement("div");
+  const heart = document.createElement("div");
   heart.classList.add("heart");
   const icons = ["✨", "💖", "💍", "🥂"];
   heart.innerHTML = icons[Math.floor(Math.random()*icons.length)];
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(20+Math.random()*20)+"px";
-  heart.style.animationDuration=(6+Math.random()*4)+"s";
+  heart.style.left = Math.random()*100+"vw";
+  heart.style.fontSize = (15 + Math.random()*15)+"px";
+  heart.style.animationDuration = (5 + Math.random()*3)+"s";
   document.body.appendChild(heart);
-  setTimeout(()=>{ heart.remove(); },8000);
+  setTimeout(()=>{ heart.remove(); }, 6000);
 }
-setInterval(createHeart,500);
+setInterval(createHeart, 600);
+
+// Fix for Safari 100vh bug
+window.addEventListener('resize', () => {
+  document.body.style.height = window.innerHeight + 'px';
+});
 </script>
 
 </body>
